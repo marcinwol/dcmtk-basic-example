@@ -23,7 +23,7 @@ cd dcmtk-basic-example
 
 #### Compile
 ```bash
-cmake
+cmake .
 make
 ```
 

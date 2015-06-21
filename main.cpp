@@ -29,21 +29,16 @@ int main() {
     OFCondition status = fileformat.loadFile(in_file.c_str());
 
     if (status.bad()) {
-        cout << "Problem openning file" << endl;
+        cout << "Problem openning file:" << in_file << endl;
         return 1;
     } else {
-        cout << "Open properly" << endl;
+        cout << "DCM file opened properly" << endl;
     }
 
     DcmDataset* dataset = fileformat.getDataset();
     E_TransferSyntax xfer = dataset->getOriginalXfer();
 
-    OFString pixelSpacing;
-
-    dataset->findAndGetOFStringArray(DCM_ImagerPixelSpacing, pixelSpacing);
-
-    cout << "ImagerPixelSpacing: " <<  pixelSpacing << endl;
-
+    // create a DicomImage object
     shared_ptr<DicomImage> dcm_img {new DicomImage(dataset, xfer)};
 
     if (dcm_img->getStatus() == EIS_InvalidImage)
@@ -64,7 +59,6 @@ int main() {
     int result = dcm_img->writePluginFormat(&tiffPlugin, ofile, 0);
 
     fclose(ofile);
-
 
     cout << "Successful execution" << endl;
 
