@@ -59,6 +59,8 @@ int main() {
     int result = dcm_img->writePluginFormat(&tiffPlugin, ofile, 0);
 
     fclose(ofile);
+    
+    cout << "Tiff written as: " << out_file << endl;
 
     cout << "Successful execution" << endl;
 
