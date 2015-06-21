@@ -17,23 +17,24 @@ sudo apt-get install build-essential cmake libdcmtk2-dev
 
 #### Get the source code
 ```bash
-git clone https://github.com/marcinwol/mwbarcode
-cd mwbarcode
+git clone https://github.com/marcinwol/dcmtk-basic-example
+cd dcmtk-basic-example
 ```
 
 #### Compile
 ```bash
-cmake -DCMAKE_INSTALL_PREFIX=/opt/mwimage
+cmake
 make
-````
-`CMAKE_INSTALL_PREFIX` specifies where the binary should be installed.
+```
 
+#### Download example DICOM images
+For this example C++11 program, I used images avaliable [here](http://www.pcir.org/researchers/77654033_20010101.html)
 
-#### Install
+Still being in the dcmtk-basic-example:
 ```bash
-make install 
-````
- or if root required 
-```bash
-sudo make install 
-````
+wget https://dl.dropboxusercontent.com/s/w28rorcufnaddua/77654033_20010101.tar.bz2
+mkdir DCMIMAGES
+tar -xjvf 77654033_20010101.tar.bz2 -C DCMIMAGES/
+rm 77654033_20010101.tar.bz2
+```
+
