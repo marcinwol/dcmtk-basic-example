@@ -1,0 +1,7 @@
+*.pro.user*
+*~
+*.o
+*.a
+*.so*
+.idea
+_build
