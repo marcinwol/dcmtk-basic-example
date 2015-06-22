@@ -23,6 +23,8 @@ int main() {
         root_path = SOURCE_CODE_LOCATION;
     #endif
 
+    // where does this example dcm come from, is
+    // is explained at https://github.com/marcinwol/dcmtk-basic-example
     string in_file {root_path  + "/DCMIMAGES/77654033/20010101/CR1/6154"};
 
     DcmFileFormat file_format;
@@ -44,6 +46,7 @@ int main() {
     cout << "Patient name is: " << patient_name << endl;
 
     cout << "Successful execution" << endl;
+    
     return 0;
 }
 
