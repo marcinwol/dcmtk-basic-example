@@ -38,3 +38,13 @@ tar -xjvf 77654033_20010101.tar.bz2 -C DCMIMAGES/
 rm 77654033_20010101.tar.bz2
 ```
 
+#### Run the code
+```bash
+./testDCMTK
+```
+The output should be:
+```bash
+DCM file opened properly
+Patient name is: Doe^Archibald
+Successful execution
+```

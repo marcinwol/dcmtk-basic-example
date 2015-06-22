@@ -46,7 +46,7 @@ int main() {
     cout << "Patient name is: " << patient_name << endl;
 
     cout << "Successful execution" << endl;
-    
+
     return 0;
 }
 
