@@ -11,7 +11,7 @@
 
 using namespace std;
 
-int main() {
+int main(int argc, const char *argv[]) {
 
     string root_path;
 
@@ -31,21 +31,24 @@ int main() {
     OFCondition status = file_format.loadFile(in_file.c_str());
 
     if (status.bad()) {
-        cout << "Problem openning file:" << in_file << endl;
+        cerr << "Problem openning file:" << in_file << endl;
         return 1;
-    } else {
-        cout << "DCM file opened properly" << endl;
     }
 
     DcmDataset* dataset = file_format.getDataset();
 
     OFString patient_name;
 
-    dataset->findAndGetOFStringArray(DCM_PatientName, patient_name);
+    OFCondition condition;
+    condition = dataset->findAndGetOFStringArray(DCM_PatientName, patient_name);
 
-    cout << "Patient name is: " << patient_name << endl;
+    if (condition.good())  {
+        cout << "Patient name is: " << patient_name << endl;
+    } else {
+        cerr << "Could not get patient name" << endl;
+    }
 
-    cout << "Successful execution" << endl;
+    cout << "Program finish." << endl;
 
     return 0;
 }
