@@ -44,7 +44,6 @@ rm 77654033_20010101.tar.bz2
 ```
 The output should be:
 ```bash
-DCM file opened properly
 Patient name is: Doe^Archibald
-Successful execution
+Program finish.
 ```
